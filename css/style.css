@@ -1,0 +1,494 @@
+html,
+body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+section.content {
+	flex: 1 0 auto;
+	margin: 3rem 0;
+}
+body {
+	margin: 0;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #441717;
+	color: white;
+	padding: 1rem 3rem;
+}
+header #title {
+	padding: 0 5rem;
+}
+header #nav {
+	display: flex;
+	list-style: none;
+	gap: 2rem;
+	align-items: center;
+	padding: 0;
+	flex-flow: row wrap;
+}
+
+h1 {
+	text-align: center;
+	font-size: 2rem;
+}
+header #nav .user.btn {
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	flex-flow: column;
+	font-size: 12px;
+}
+header #nav .user .fa-user {
+	font-size: 2rem;
+}
+header #nav .user span {
+	margin-top: 5px;
+}
+/* Dropdown CSS based on https://codepen.io/andornagy/pen/xhiJH
+ */
+header #nav li ul.dropdown {
+	margin-right: 100%; /* Hide the dropdown off screen */
+	position: absolute;
+	top: 145px; /* The navbar height */
+	list-style: none;
+	background: #441717;
+	padding: 0;
+	right: 0;
+	border-radius: 0 0 7px 7px;
+	border-top: 1px solid #561d1d;
+}
+header #nav li ul.dropdown:before {
+	content: "";
+	border-top: 1px solid #351212;
+	width: 100%;
+	position: absolute;
+	top: -2px;
+}
+/* Shows the dropdown on focus within */
+header #nav li:focus-within ul.dropdown {
+	margin-right: 0;
+}
+header #nav li ul.dropdown li {
+	display: inline-block;
+	margin: 2rem;
+}
+/* Dropdown inset arrow CSS (for User nav button)
+ * based on an answer from StackOverflow https://stackoverflow.com/a/47702193/2358222
+ */
+header #nav a.user:focus:before,
+header #nav a.user:focus:after {
+	content: "";
+	position: absolute;
+	top: 102px;
+	border-top: 40px solid rgb(91 30 30 / 40%);
+	border-right: 29px solid transparent;
+	border-left: 29px solid transparent;
+}
+header #nav a.user:focus:after {
+	border-top: 37px solid #441717;
+	border-right: 26px solid transparent;
+	border-left: 26px solid transparent;
+}
+
+/* Login */
+
+/* Neumorphic CSS based on
+ * https://codepen.io/swapnet/pen/QWwPVwE
+ */
+form,
+#hotelList,
+#details_container {
+	width: 500px;
+	margin: auto;
+	background: #e6e6e6;
+	padding: 3rem;
+	border-radius: 30px;
+	box-sizing: border-box;
+}
+.form-control,
+fieldset {
+	display: flex;
+	padding: 15px;
+	align-items: center;
+}
+.form-control {
+	flex-flow: row;
+	align-items: center;
+}
+.login label {
+	width: 50% !important;
+}
+form input,
+.btn {
+	padding: 0 20px;
+	height: 30px;
+	width: 100%;
+	outline: none;
+	border: none;
+	background: transparent;
+	border-radius: 20px;
+	box-shadow: inset 0px 2px 5px rgb(0 0 0 / 20%), inset 0px -2px 5px rgb(255 255 255 / 75%);
+}
+.btn {
+	font-size: 1.2rem;
+	background-color: #e6e6e6;
+	transition: all 0.4s;
+	box-shadow: 0px 5px 10px rgb(0 0 0 / 20%), 0px -5px 10px rgb(255 255 255 / 75%);
+}
+.btn:hover {
+	box-shadow: 0px 2px 6px rgb(0 0 0 / 20%), 0px -2px 6px rgb(255 255 255 / 75%);
+}
+.btn:active {
+	box-shadow: inset 0px 2px 5px rgb(0 0 0 / 20%), inset 0px -2px 5px rgb(255 255 255 / 75%)
+}
+header .btn {
+	transition: none;
+	background-color: #441717;
+	box-shadow: 0px 5px 10px rgb(0 0 0 / 30%), 0px -5px 10px rgb(91 30 30 / 75%);
+	color: white;
+	padding: 10px 30px;
+	text-decoration: none;
+}
+header .btn:hover {
+	box-shadow: 0px 2px 3px rgb(0 0 0 / 30%), 0px -2px 3px rgb(91 30 30 / 75%);
+}
+header .btn.active,
+header .btn:active,
+header .user.btn:focus {
+	box-shadow: inset 0px 2px 3px rgb(0 0 0 / 30%), inset 0px -2px 3px rgb(91 30 30 / 75%)
+}
+.goBack a {
+	transition: none;
+	color: black;
+	width: auto;
+	padding: 10px 30px 5px;
+	text-decoration: none;
+	background-color: #f4f4f4;
+	box-shadow: 0px 5px 10px rgb(154 154 154 / 30%), 0px -5px 10px rgb(255 255 255 / 75%);
+}
+.goBack a:hover {
+	box-shadow: 0px 2px 3px rgb(154 154 154 / 30%), 0px -2px 3px rgb(255 255 255 / 75%);
+}
+.goBack a:active {
+	box-shadow: inset 0px 2px 3px rgb(154 154 154 / 40%), inset 0px -2px 3px rgb(255 255 255 / 75%);
+}
+
+.errors,
+.outputMsg {
+	width: auto;
+	justify-content: space-around !important;
+	margin: 1rem;
+}
+
+.error {
+	border-radius: 30px;
+	border: 2px solid red;
+	padding: 5px 1rem;
+	text-align: center;
+	color: red;
+	height: fit-content;
+}
+.error p {
+	margin: 0;
+}
+.loggedout {
+	font-size: 1.2rem;
+	width: fit-content;
+	margin: auto;
+	margin-bottom: 2rem;
+	border: 2px solid green;
+	padding: 5px;
+	border-radius: 5px;
+	color: green;
+}
+
+/* Browseable list */
+form#search {
+	padding: 1.5rem;
+}
+.form-control.btns {
+	gap: 3rem;
+}
+.form-control label {
+	text-align: right;
+	padding-right: 10px;
+	width: max-content;
+}
+.form-control:first-child label {
+	text-align: left;
+}
+.outputMsg.errors {
+	flex-flow: column;
+	text-align: center;
+	margin: auto;
+	width: fit-content;
+}
+.outputMsg.errors .error {
+	max-width: 100%;
+}
+#hotelList {
+	list-style: none;
+	padding: 1rem;
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+}
+#hotelList li {
+	padding: 20px;
+	margin: 5px;
+	position: relative;
+}
+#hotelList li a {
+	padding: 7px 20px;
+	color: black;
+	text-decoration: none;
+}
+
+/* Browseable List Details */
+#details_container {
+	width: 50%;
+	margin: auto;
+}
+.row {
+	display: flex;
+	justify-content: space-evenly;
+}
+.row.error-403,
+.row.error-404,
+.row.login {
+	flex-flow: column;
+	text-align: center;
+	justify-content: center;
+}
+#details_container .row:not(#amenities):not(ul) {
+	gap: 10%;
+	justify-content: center;
+}
+#details_container .row#amenities {
+	padding: 1rem;
+	align-items: baseline;
+	justify-content: center;
+}
+#details_container #amenities span {
+	font-size: 1.3rem;
+}
+#details_container #amenities ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+#details_container #amenities ul li {
+	padding: 10px;
+	margin: 10px;
+	background: #cbcbfd;
+	border-radius: 30px;
+}
+#details_container p {
+	font-size: 1.2rem;
+}
+#details_container .name {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#details_container .price {
+	background: green;
+	border-radius: 30px;
+	padding: 3px 8px;
+	color: white;
+	font-size: 1.3rem;
+	font-weight: 100;
+	margin-left: 20px;
+}
+#details_container .price sup {
+	font-size: 0.7rem;
+}
+.goBack {
+	margin: 5rem;
+}
+.goBack a {
+	color: black;
+}
+.goBack i.fas {
+	margin-right: 10px;
+}
+.stars {
+	color: #bcb9b9;
+}
+.stars.star-1 i:nth-child(-n+1),
+.stars.star-2 i:nth-child(-n+2),
+.stars.star-3 i:nth-child(-n+3),
+.stars.star-4 i:nth-child(-n+4),
+.stars.star-5 i:nth-child(-n+5) {
+	color: #e4c000;
+}
+
+
+/* Add Hotel */
+
+#addHotel {
+	width: 50%;
+}
+#addHotel .row {
+	justify-content: space-between;
+}
+.select-container label span {
+	display: inline-block;
+	width: 80px;
+}
+#addHotel > div:not(.select-container) .form-control:not(#amenities-control):not(#stars-control):not(#price-control) {
+	width: 50%;
+}
+
+/* Neumorphic radio/checkbox button CSS based on
+ * https://codepen.io/halvves/pen/QWbWGGb
+ */
+fieldset {
+	border: none;
+	flex-flow: row;
+	padding: 0;
+	margin: 0;
+}
+fieldset input {
+	opacity: 0;
+	pointer-events: none;
+	height: 0;
+	margin: 0;
+}
+fieldset legend {
+	width: max-content;
+	padding: 0;
+}
+fieldset label {
+	padding: 0 1rem !important;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+fieldset label span {
+	text-align: center !important;
+	width: 80px;
+}
+fieldset .indicator {
+	position: relative;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	box-shadow: -8px -4px 8px 0px #efefef, 8px 4px 12px 0px #d5d5d5;
+	overflow: hidden;
+}
+fieldset .indicator::before, .indicator::after {
+	content: '';
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	height: 80%;
+	width: 80%;
+	border-radius: 50%;
+}
+fieldset .indicator::before {
+	box-shadow: -4px -2px 4px 0px #cfcfcf, 4px 2px 8px 0px #efefef;
+}
+fieldset .indicator::after {
+	background-color: #ebebeb;
+	box-shadow: -4px -2px 4px 0px #f9f9f9, 4px 2px 8px 0px #d9d9d9;
+	transition: opacity .25s ease-in-out, transform .25s ease-in-out;
+}
+fieldset input:checked ~ .indicator::after {
+	opacity: 0;
+}
+/* End Neumorphic radio/checkbox buttons */
+
+#addHotel #price-control {
+	flex-flow: row wrap;
+	align-content: center;
+}
+#addHotel #price-control input {
+	width: 70px;
+	padding-right: 0;
+	padding-left: 1.5rem;
+}
+#addHotel #price-control label::after {
+	content: "£";
+	position: relative;
+	left: 2rem;
+}
+select {
+	width: 200px;
+	height: 30px;
+	outline: none;
+	border: none;
+	background: transparent;
+	border-radius: 20px;
+	box-shadow: inset 0px 2px 5px rgb(0 0 0 / 20%), inset 0px -2px 5px rgb(255 255 255 / 75%);
+	padding-left: 1rem;
+	padding-right: 2rem;
+	background: #e6e6e6;
+	text-overflow: ellipsis;
+}
+.overflow-ellipsis {
+	display: inline-block;
+	text-overflow: ellipsis;
+}
+
+/* Change the select arrow icon */
+
+/* Disable the select icon appearance */
+select {
+	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+}
+/* Add the new Font Awesome icon to the label using the after pseudo element */
+.select-container label::after {
+	content: "\f078"; /* down arrow */
+	font-weight: 900;
+	font-family: "Font Awesome 5 Free";
+	position: relative;
+	left: -30px;
+	top: 2px;
+	/* Allow mouse click to pass through to the select */
+	pointer-events: none;
+}
+/* Change the icon when focus is given to an element inside the label 
+ * ie. clicking on the select.
+ */
+.select-container label:focus-within::after {
+	content: "\f077"; /* up arrow */
+}
+
+.form-control#amenities-control fieldset {
+	align-items: baseline;
+}
+.form-control#amenities-control fieldset .amenities {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100%;
+	margin: auto;
+	margin-top: -5px;
+	gap: 0.5rem;
+}
+.form-control#amenities-control fieldset label {
+	padding: 0 !important;
+	height: 80px;
+}
+
+
+
+footer {
+	text-align: center;
+	padding: 1rem;
+	background: #441717;
+	color: white;
+}
